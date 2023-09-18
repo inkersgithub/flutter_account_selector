@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 
 class Account {
   String title;
-  Widget accountImageWidget;
+  Widget? accountImageWidget;
   Account({
-    @required this.title,
-    @required this.accountImageWidget,
+    required this.title,
+    required this.accountImageWidget,
   });
 }
 
 class AccountWithSelectionBoolean {
   String title;
-  Widget accountImageWidget;
+  Widget? accountImageWidget;
   bool selected;
   AccountWithSelectionBoolean({
-    @required this.title,
-    @required this.accountImageWidget,
-    @required this.selected,
+    required this.title,
+    required this.accountImageWidget,
+    required this.selected,
   });
 }
 
@@ -26,8 +26,7 @@ List<AccountWithSelectionBoolean> setupAccountWithSelectionList(
   bool showAddAccountOption,
   String addAccountTitle,
 ) {
-  List<AccountWithSelectionBoolean> actualList =
-      List<AccountWithSelectionBoolean>();
+  List<AccountWithSelectionBoolean> actualList = [];
   for (int i = 0; i < accountList.length; i++) {
     actualList.add(
       AccountWithSelectionBoolean(
@@ -51,8 +50,7 @@ List<AccountWithSelectionBoolean> setupAccountWithMultiSelectionList(
   List<Account> accountList,
   List<int> initiallySelectedIndexList,
 ) {
-  List<AccountWithSelectionBoolean> actualList =
-      List<AccountWithSelectionBoolean>();
+  List<AccountWithSelectionBoolean> actualList = [];
   for (int index = 0; index < accountList.length; index++) {
     actualList.add(
       AccountWithSelectionBoolean(

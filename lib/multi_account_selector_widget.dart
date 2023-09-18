@@ -14,16 +14,16 @@ class MultiAccountSelectionWidget extends StatefulWidget {
   final String doneText;
 
   MultiAccountSelectionWidget({
-    @required this.initiallySelectedIndexList,
-    @required this.accountwithselectionList,
-    @required this.checkedIconColor,
-    @required this.uncheckedIconColor,
-    @required this.doneText,
-    @required this.doneButtonColor,
-    @required this.arrowColor,
-    @required this.backgroundColor,
-    @required this.selectedTextColor,
-    @required this.unselectedTextColor,
+    required this.initiallySelectedIndexList,
+    required this.accountwithselectionList,
+    required this.checkedIconColor,
+    required this.uncheckedIconColor,
+    required this.doneText,
+    required this.doneButtonColor,
+    required this.arrowColor,
+    required this.backgroundColor,
+    required this.selectedTextColor,
+    required this.unselectedTextColor,
   });
   @override
   _MultiAccountSelectionWidgetState createState() =>
@@ -32,7 +32,7 @@ class MultiAccountSelectionWidget extends StatefulWidget {
 
 class _MultiAccountSelectionWidgetState
     extends State<MultiAccountSelectionWidget> {
-  List<int> currentlySelectedIndexList;
+  List<int> currentlySelectedIndexList = [];
 
   @override
   void initState() {

@@ -16,18 +16,18 @@ class SingleAccountSelectionWidget extends StatefulWidget {
   final Function addAccountTapCallback;
 
   SingleAccountSelectionWidget({
-    @required this.initiallySelectedIndex,
-    @required this.tapCallback,
-    @required this.accountwithselectionList,
-    @required this.hideSheetOnItemTap,
-    @required this.selectedRadioColor,
-    @required this.showAddAccountOption,
-    @required this.addAccountTapCallback,
-    @required this.arrowColor,
-    @required this.backgroundColor,
-    @required this.unselectedRadioColor,
-    @required this.selectedTextColor,
-    @required this.unselectedTextColor,
+    required this.initiallySelectedIndex,
+    required this.tapCallback,
+    required this.accountwithselectionList,
+    required this.hideSheetOnItemTap,
+    required this.selectedRadioColor,
+    required this.showAddAccountOption,
+    required this.addAccountTapCallback,
+    required this.arrowColor,
+    required this.backgroundColor,
+    required this.unselectedRadioColor,
+    required this.selectedTextColor,
+    required this.unselectedTextColor,
   });
   @override
   _SingleAccountSelectionWidgetState createState() =>
@@ -36,7 +36,7 @@ class SingleAccountSelectionWidget extends StatefulWidget {
 
 class _SingleAccountSelectionWidgetState
     extends State<SingleAccountSelectionWidget> {
-  int currentIndex;
+  late int currentIndex;
   @override
   void initState() {
     currentIndex = widget.initiallySelectedIndex;
@@ -124,7 +124,9 @@ class _SingleAccountSelectionWidgetState
                                     : widget.unselectedRadioColor),
                         onTap: index ==
                                 (widget.accountwithselectionList.length - 1)
-                            ? widget.addAccountTapCallback
+                            ? () {
+                              widget.addAccountTapCallback();
+                            }
                             : () {
                                 setState(() {
                                   currentIndex = index;

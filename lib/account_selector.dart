@@ -6,14 +6,14 @@ import 'package:account_selector/single_account_selector_widget.dart';
 import 'package:flutter/material.dart';
 
 showAccountSelectorSheet({
-  @required BuildContext context,
-  @required List<Account> accountList,
+  required BuildContext context,
+  required List<Account> accountList,
   int initiallySelectedIndex = -1,
-  Function(int index) tapCallback,
+  Function(int index)? tapCallback,
   bool hideSheetOnItemTap = false,
   Color selectedRadioColor = Colors.green,
   bool showAddAccountOption = false,
-  Function addAccountTapCallback,
+  Function? addAccountTapCallback,
   String addAccountTitle = "Add Account",
   Color arrowColor = Colors.grey,
   Color backgroundColor = Colors.white,
@@ -54,9 +54,9 @@ showAccountSelectorSheet({
 }
 
 Future<List<int>> showMultiAccountSelectorSheet({
-  @required BuildContext context,
-  @required List<Account> accountList,
-  List<int> initiallySelectedIndexList,
+  required BuildContext context,
+  required List<Account> accountList,
+  List<int>? initiallySelectedIndexList,
   Color checkedIconColor = Colors.green,
   Color doneButtonColor = Colors.blue,
   Color arrowColor = Colors.grey,
@@ -70,7 +70,7 @@ Future<List<int>> showMultiAccountSelectorSheet({
   List<AccountWithSelectionBoolean> accountwithselectionList =
       setupAccountWithMultiSelectionList(
     accountList,
-    initiallySelectedIndexList,
+    initiallySelectedIndexList!,
   );
   List<int> selectedIndexList = await showModalBottomSheet(
       context: context,
@@ -80,7 +80,7 @@ Future<List<int>> showMultiAccountSelectorSheet({
       builder: (context) {
         return MultiAccountSelectionWidget(
           accountwithselectionList: accountwithselectionList,
-          initiallySelectedIndexList: initiallySelectedIndexList ?? [-1],
+          initiallySelectedIndexList: initiallySelectedIndexList,
           checkedIconColor: checkedIconColor,
           doneText: doneText,
           doneButtonColor: doneButtonColor,
@@ -91,5 +91,5 @@ Future<List<int>> showMultiAccountSelectorSheet({
           uncheckedIconColor: uncheckedIconColor,
         );
       });
-  return selectedIndexList ?? [];
+  return selectedIndexList;
 }

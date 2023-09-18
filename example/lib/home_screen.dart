@@ -37,7 +37,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
             padding: EdgeInsets.all(16),
             child: Text(resultText),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               showAccountSelectorSheet(
                 context: context,
@@ -72,21 +72,21 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
             },
             child: Text("Single Account Selector"),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () async {
               var res = await showMultiAccountSelectorSheet(
                 context: context,
                 accountList: accountList,
                 initiallySelectedIndexList: [0, 2], //Optional
                 isSheetDismissible: false, //Optional
-                backgroundColor: Colors.orange[100], //Optional
+                backgroundColor: const Color.fromARGB(255, 255, 224, 178), //Optional
                 arrowColor: Colors.purple, //Optional
                 doneButtonColor: Colors.purple, //Optional
                 doneText: "Done", //Optional
                 checkedIconColor: Colors.purple, //Optional
                 selectedTextColor: Colors.purple, //Optional
-                uncheckedIconColor: Colors.grey[800], //Optional
-                unselectedTextColor: Colors.grey[800], //Optional
+                uncheckedIconColor: const Color.fromARGB(255, 66, 66, 66), //Optional
+                unselectedTextColor: const Color.fromARGB(255, 60, 60, 60), //Optional
               );
               setState(() {
                 resultText = "list of indexes selected  : ${res.toString()}";
